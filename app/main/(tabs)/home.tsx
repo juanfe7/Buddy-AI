@@ -1,37 +1,26 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import React from 'react';
 import {
-    Dimensions,
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
 export default function BuddyDashboard() {
-  return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.brand}>
-          <MaterialCommunityIcons name="robot-outline" size={28} color="#4ADE80" />
-          <Text style={styles.brandText}>Buddy</Text>
-        </View>
-        <View style={styles.headerIcons}>
-          <Ionicons name="notifications-outline" size={24} color="#334155" style={{marginRight: 10}} />
-          <Image 
-            source={{ uri: 'https://i.pravatar.cc/100' }} 
-            style={styles.avatar} 
-          />
-        </View>
-      </View>
+  const router = useRouter();
 
+  return (
+    // Usamos View en lugar de SafeAreaView porque el layout ya maneja el espacio superior
+    <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollContent}>
+        
         {/* Saludo */}
         <View style={styles.welcomeSection}>
           <Text style={styles.welcomeTitle}>Buenos días, María C.</Text>
@@ -47,7 +36,6 @@ export default function BuddyDashboard() {
             </View>
           </View>
 
-          {/* Aquí va la imagen del mapa */}
           <View style={styles.mapContainer}> 
             <Image 
               source={require('../../../assets/images/mapaUsaquen.jpg')}
@@ -81,31 +69,37 @@ export default function BuddyDashboard() {
            </View>
         </View>
 
-        {/* Sección: Medicamentos */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Medicamentos de Hoy</Text>
-          <TouchableOpacity><Text style={styles.linkText}>Ver todos</Text></TouchableOpacity>
-        </View>
+        {/* Card: Medicamentos del Día */}
+        <View style={styles.card}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.cardTitle}>Medicamentos de Hoy</Text>
+            <TouchableOpacity>
+              <Text style={styles.linkText}>Ver todos</Text>
+            </TouchableOpacity>
+          </View>
 
-        {/* Ejemplo Medicamento Tomado */}
-        <View style={styles.medItem}>
-          <View style={[styles.medIcon, {backgroundColor: '#f0fdf4'}]}>
-             <MaterialCommunityIcons name="pill" size={20} color="#22c55e" />
+          {/* Ítem del Medicamento */}
+          <View style={styles.medItem}>
+            <View style={[styles.medIcon, { backgroundColor: '#F0FDF4' }]}>
+              <MaterialCommunityIcons name="pill" size={22} color="#22C55E" />
+            </View>
+            <View style={{ flex: 1, marginLeft: 12 }}>
+              <Text style={styles.medName}>Metformina</Text>
+              <Text style={styles.medDetails}>08:00 AM • 500mg</Text>
+            </View>
+            <View style={styles.statusBadge}>
+              <Text style={styles.statusText}>TOMADA</Text>
+            </View>
           </View>
-          <View style={{flex: 1, marginLeft: 12}}>
-            <Text style={styles.medName}>Metformina</Text>
-            <Text style={styles.medDetails}>08:00 AM • 500mg</Text>
-          </View>
-          <View style={styles.statusBadge}>
-            <Text style={styles.statusText}>TOMADA</Text>
-          </View>
+          
+          {/* Si quisieras agregar otro medicamento, iría aquí abajo del anterior */}
         </View>
 
         {/* Card: Sugerencias IA */}
-        <View style={[styles.card, {borderLeftWidth: 4, borderLeftColor: '#4ADE80'}]}>
+        <View style={[styles.card, {borderLeftWidth: 4, borderLeftColor: '#98FFD8'}]}>
           <View style={styles.aiHeader}>
-            <MaterialCommunityIcons name="robot" size={24} color="#4ADE80" />
-            <Text style={[styles.cardTitle, {marginLeft: 8}]}>Sugerencias de IA</Text>
+            <MaterialCommunityIcons name="robot" size={24} color="#065f46" />
+            <Text style={[styles.cardTitle, {marginLeft: 8}]}>Sugerencias de IA para Don Carlos</Text>
           </View>
           <Text style={styles.aiItem}>• <Text style={{fontWeight: 'bold'}}>Recordatorio:</Text> Cita médica a las 3 PM.</Text>
           <Text style={styles.aiItem}>• <Text style={{fontWeight: 'bold'}}>Nota:</Text> Olvidó la Atorvastatina hoy.</Text>
@@ -114,15 +108,18 @@ export default function BuddyDashboard() {
           </TouchableOpacity>
         </View>
         
-        <View style={{height: 100}} /> 
+        {/* Espacio final para que el FAB no tape el contenido */}
+        <View style={{height: 120}} /> 
       </ScrollView>
 
       {/* BOTÓN BOOM - Cámara */}
-      <TouchableOpacity style={styles.fabBoom}>
-        <Ionicons name="camera" size={30} color="white" />
-        <Text style={styles.fabBoomText}>BOOM</Text>
+      <TouchableOpacity 
+        style={styles.fabBoom} 
+        onPress={() => router.push('/main/camera/cameraScreen' as any)}
+      >
+        <Ionicons name="camera" size={30} color="#065f46" />
       </TouchableOpacity>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -141,37 +138,37 @@ const styles = StyleSheet.create({
   welcomeTitle: { fontSize: 22, fontWeight: 'bold', color: '#0F172A' },
   welcomeSub: { fontSize: 14, color: '#64748B' },
   card: { backgroundColor: 'white', borderRadius: 16, padding: 16, marginBottom: 15, elevation: 2, shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 5 },
-  cardRow: { backgroundColor: 'white', borderRadius: 16, padding: 16, marginBottom: 15, flexDirection: 'row', alignItems: 'center', elevation: 2 },
+  cardRow: { backgroundColor: 'white', borderRadius: 16, padding: 16, marginBottom: 15, flexDirection: 'row', alignItems: 'center', elevation: 2, shadowColor: '#000', shadowOpacity: 0.05, shadowRadius: 5 },
   cardHeader: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10, alignItems: 'center' },
   cardTitle: { fontSize: 16, fontWeight: 'bold', color: '#1E293B' },
   badgeSafe: { backgroundColor: '#F0FDF4', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12 },
-  badgeSafeText: { color: '#22C55E', fontSize: 10, fontWeight: 'bold' },
+  badgeSafeText: { color: '#065f46', fontSize: 10, fontWeight: 'bold' },
   mapPlaceholder: { height: 150, backgroundColor: '#E2E8F0', borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
   mapText: { color: '#64748B', fontSize: 12 },
   mapFooter: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 12, alignItems: 'center' },
   locName: { fontSize: 14, fontWeight: 'bold', color: '#1E293B' },
   locTime: { fontSize: 12, color: '#64748B' },
-  btnRastrear: { backgroundColor: '#4ADE80', paddingHorizontal: 15, paddingVertical: 8, borderRadius: 20 },
-  btnText: { color: 'white', fontWeight: 'bold', fontSize: 13 },
+  btnRastrear: { backgroundColor: '#98FFD8', paddingHorizontal: 15, paddingVertical: 8, borderRadius: 20 },
+  btnText: { color: '#065f46', fontWeight: 'bold', fontSize: 13 },
   adherenciaData: { flexDirection: 'row', alignItems: 'baseline', marginVertical: 5 },
   percentageText: { fontSize: 28, fontWeight: 'bold', color: '#065F46' },
   subText: { fontSize: 12, color: '#64748B', marginLeft: 8 },
-  linkText: { color: '#22C55E', fontSize: 13, fontWeight: 'bold' },
-  progressCircle: { width: 60, height: 60, borderRadius: 30, borderWidth: 5, borderColor: '#4ADE80', justifyContent: 'center', alignItems: 'center' },
-  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15, marginTop: 10 },
+  linkText: { color: '#065f46', fontSize: 13, fontWeight: 'bold' },
+  progressCircle: { width: 60, height: 60, borderRadius: 30, borderWidth: 5, borderColor: '#98FFD8', justifyContent: 'center', alignItems: 'center' },
+  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15 },
   sectionTitle: { fontSize: 16, fontWeight: 'bold', color: '#1E293B' },
-  medItem: { backgroundColor: 'white', padding: 12, borderRadius: 12, flexDirection: 'row', alignItems: 'center', marginBottom: 10, elevation: 1 },
+  medItem: { backgroundColor: '#f3f3f3', padding: 12, borderRadius: 12, flexDirection: 'row', alignItems: 'center', marginBottom: 10, elevation: 1 },
   medIcon: { width: 40, height: 40, borderRadius: 20, justifyContent: 'center', alignItems: 'center' },
   medName: { fontSize: 15, fontWeight: 'bold', color: '#1E293B' },
   medDetails: { fontSize: 12, color: '#64748B' },
   statusBadge: { backgroundColor: '#DCFCE7', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8 },
   statusText: { color: '#166534', fontSize: 10, fontWeight: 'bold' },
   fabBoom: { 
-    position: 'absolute', bottom: 30, right: 20, backgroundColor: '#4ADE80',
+    position: 'absolute', bottom: 30, right: 20, backgroundColor: '#98FFD8',
     width: 75, height: 75, borderRadius: 40, justifyContent: 'center', alignItems: 'center',
     elevation: 8, shadowColor: '#000', shadowOpacity: 0.3, shadowRadius: 5
   },
-  fabBoomText: { color: 'white', fontSize: 10, fontWeight: 'bold', marginTop: 2 },
+  fabBoomText: { color: '#065f46', fontSize: 10, fontWeight: 'bold', marginTop: 2 },
   aiHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
   aiItem: { fontSize: 13, marginBottom: 5, color: '#334155' },
   btnAnalisis: { backgroundColor: '#F1F5F9', padding: 10, borderRadius: 10, marginTop: 10, alignItems: 'center' },
