@@ -3,19 +3,26 @@ import { Tabs } from 'expo-router';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// Creamos el componente del Header personalizado
+// Importamos tu logo real (ajustamos la ruta para salir de main/(tabs)/ )
+import logoImg from '../../../assets/images/logo-without-text.png';
+
 function CustomHeader() {
   return (
     <SafeAreaView edges={['top']} style={styles.safeArea}>
       <View style={styles.header}>
         <View style={styles.brand}>
-          <MaterialCommunityIcons name="robot-outline" size={28} color="#98FFD8" />
+          {/* Cambiamos el icono por tu logo real */}
+          <Image 
+            source={logoImg} 
+            style={styles.headerLogo} 
+            resizeMode="contain" 
+          />
           <Text style={styles.brandText}>Buddy</Text>
         </View>
         <View style={styles.headerIcons}>
           <Ionicons name="notifications-outline" size={24} color="#334155" style={{ marginRight: 15 }} />
           <Image 
-            source={{ uri: 'https://i.pravatar.cc/100' }} 
+            source={{ uri: 'https://i.pravatar.cc/100' }} // Avatar de María
             style={styles.avatar} 
           />
         </View>
@@ -29,8 +36,8 @@ export default function TabsLayout() {
     <Tabs screenOptions={{
       tabBarActiveTintColor: '#2D3436',
       tabBarInactiveTintColor: '#94A3B8',
-      headerShown: true, // <-- Ahora lo activamos
-      header: () => <CustomHeader />, // <-- Usamos nuestro componente
+      headerShown: true,
+      header: () => <CustomHeader />, 
       tabBarStyle: {
         height: 70,
         paddingBottom: 10,
@@ -85,7 +92,16 @@ const styles = StyleSheet.create({
     borderBottomColor: '#F1F5F9',
   },
   brand: { flexDirection: 'row', alignItems: 'center' },
-  brandText: { fontSize: 22, fontWeight: 'bold', marginLeft: 8, color: '#0F172A' },
+  headerLogo: {
+    width: 32,  // Tamaño compacto para el header
+    height: 32,
+  },
+  brandText: { 
+    fontSize: 22, 
+    fontWeight: 'bold', 
+    marginLeft: 10, // Un poco más de espacio para que no respire encima del logo
+    color: '#0F172A' 
+  },
   avatar: { width: 38, height: 38, borderRadius: 19 },
   headerIcons: { flexDirection: 'row', alignItems: 'center' },
 });
