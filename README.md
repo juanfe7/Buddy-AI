@@ -1,49 +1,57 @@
 # Buddy AI 🤖💊
-### *Inteligencia Artificial al servicio del cuidado de nuestros mayores*
+### *Ecosistema de Salud Inteligente: Elevando el cuidado de nuestros mayores con Google Cloud*
 
-**Buddy AI** es un asistente integral de salud diseñado para cuidadores de adultos mayores. El proyecto nace de la necesidad de reducir los errores en la medicación y mejorar el seguimiento del bienestar mediante el uso de IA Generativa y visión computacional, permitiendo una gestión humana y técnica del cuidado.
-
----
-
-## 🚀 Propuesta de Valor
-En el contexto de la **Google Cloud Hackathon 2026**, **Buddy AI** redefine la gestión del cuidado mediante:
-* **Visión Computacional:** Escaneo y análisis en tiempo real de empaques de medicinas para evitar errores de transcripción manual.
-* **Chatbot Empático:** Un asistente conversacional que no solo registra datos, sino que entiende el contexto del cuidador y alerta sobre interacciones medicamentosas peligrosas.
-* **Gestión Basada en Datos:** Centralización de horarios y dosis en una nube reactiva para un control total del historial médico.
+**Buddy AI** es una plataforma de salud reactiva diseñada para cerrar la brecha entre el cuidador y el adulto mayor. Mediante el uso de **IA Generativa de última generación** y **computación en la nube**, transformamos el cuidado doméstico en una gestión de precisión, reduciendo errores de medicación y proporcionando tranquilidad a las familias.
 
 ---
 
-## 🛠️ Stack Tecnológico
-* **Frontend:** [React Native](https://reactnative.dev/) + [Expo](https://expo.dev/) (SDK 51)
-* **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
-* **IA Generativa:** [Google Gemini 1.5 Flash](https://aistudio.google.com/) (Análisis de imágenes y lógica de procesamiento de lenguaje natural)
-* **Backend & DB:** [Firebase](https://firebase.google.com/) (Cloud Firestore para persistencia y actualización en tiempo real)
-* **Estilos:** [React Native Paper](https://reactnativepaper.com/) & Material Design
+## 🚀 Propuesta de Valor Estratégica
+En el marco de la **Google Cloud Hackathon 2026**, Buddy AI presenta una solución integral basada en tres pilares:
+
+* **Interoperabilidad Reactiva:** Arquitectura basada en eventos que sincroniza la gestión del cuidador con una interfaz simplificada para el paciente en tiempo real.
+* **Seguridad Farmacológica Proactiva:** Análisis instantáneo de interacciones medicamentosas utilizando **Gemini 1.5 Flash**, con una arquitectura lista para escalar a **Vertex AI**.
+* **Visión Computacional Predictiva:** Extracción de datos críticos de empaques médicos mediante OCR inteligente para eliminar el error humano en el registro.
 
 ---
 
-## ✨ Funcionalidades Actuales (MVP Hackatón)
-
-### 📸 Módulo de Visión (Buddy Scan)
-* **Reconocimiento Automático:** Al tomar una foto a una medicina, la IA extrae el nombre, la dosis y las instrucciones de uso.
-* **Validación de Seguridad:** Buddy analiza si el medicamento detectado es apto para el paciente según su historial registrado.
-* **UX de Escáner:** Interfaz visual con overlay de escaneo para guiar al usuario en la captura de la imagen.
-
-### 💬 Chatbot de Asistencia (Buddy Chat)
-* **Gestión Natural:** Permite agregar o eliminar medicamentos de la lista mediante lenguaje natural (ej: *"Buddy, ya no le des Ibuprofeno a Don Carlos"*).
-* **Detección de Interacciones:** Si el usuario intenta agregar un medicamento que presenta riesgos con los actuales, la IA advierte sobre el peligro farmacológico antes de guardar.
-* **Interfaz de Chat Avanzada:** Soporte para múltiples líneas de texto y diseño responsivo para una comunicación fluida.
-
-### 📋 Dashboard de Medicamentos
-* **Lista de Seguimiento:** Visualización clara de los medicamentos programados, dosis y frecuencias.
-* **Próxima Dosis:** Card inteligente que resalta el medicamento más cercano a ser administrado.
+## 🛠️ Stack Tecnológico de Nivel Empresarial
+* **Core Engine:** [Google Gemini 1.5 Flash](https://aistudio.google.com/) (Preparado para despliegue en **Vertex AI** para control avanzado de parámetros y seguridad de datos).
+* **Frontend:** [React Native](https://reactnative.dev/) + [Expo](https://expo.dev/) (SDK 51 - Arquitectura multiplataforma de alto rendimiento).
+* **Data Layer:** [Firebase](https://firebase.google.com/) (Cloud Firestore para una base de datos NoSQL con sincronización bidireccional inmediata).
+* **Language:** [TypeScript](https://www.typescriptlang.org/) (Tipado estricto para garantizar la estabilidad del software).
 
 ---
 
-## 📅 Roadmap (Futuras Implementaciones)
-* **Sistema de Notificaciones Push:** Alertas en tiempo real para recordar las tomas exactas.
-* **Módulo de Ubicación:** Rastreo GPS y creación de geocercas para la seguridad del paciente fuera de casa.
-* **Reportes para Médicos:** Generación de resúmenes de cumplimiento en PDF para consultas profesionales.
+## ✨ Funcionalidades Destacadas (MVP Hackatón)
+
+### 📸 Buddy Scan (Módulo de Visión)
+* **Análisis Multimodal:** Reconoce nombres comerciales, componentes activos y dosis directamente desde la cámara.
+* **Validación de Historial:** Cruza los datos escaneados con la base de datos de medicamentos actuales del paciente para detectar duplicidades o riesgos potenciales.
+* **UX de Escáner:** Interfaz visual con overlay dinámico para guiar al usuario en la captura precisa de la medicina.
+
+### 💬 Buddy Chat (Asistente de Cuidados)
+* **Control Natural de Base de Datos:** Gestión total de la medicación (altas y bajas) mediante procesamiento de lenguaje natural (NLP).
+* **Inteligencia de Seguridad:** Motor de reglas basado en IA que advierte sobre interacciones peligrosas antes de que se guarden en el esquema de salud.
+* **Interfaz Avanzada:** Soporte para entrada multilínea y diseño responsivo para una comunicación fluida.
+
+### 🔍 Gestión y Búsqueda en Tiempo Real
+* **Búsqueda Inteligente:** Motor de búsqueda integrado para filtrar y localizar medicamentos en la base de datos de manera instantánea.
+* **Dashboard de Adherencia:** Visualización dinámica que resalta la "Próxima Dosis" calculada automáticamente por el backend reactivo.
+
+---
+
+## 📱 Visión de Ecosistema: App del Paciente
+Buddy AI incluye el diseño de una **Interfaz de Paciente Reactiva**, una aplicación simplificada para el adulto mayor que:
+* Recibe actualizaciones instantáneas mediante `onSnapshot` cuando el cuidador modifica el tratamiento.
+* Presenta botones de confirmación de alta visibilidad para registrar tomas.
+* Elimina la fricción tecnológica, permitiendo que el paciente solo interactúe con lo estrictamente necesario.
+
+---
+
+## 📅 Roadmap de Escalabilidad
+* **Vertex AI Migration:** Implementación de modelos ajustados (Fine-tuning) para protocolos médicos específicos.
+* **Ecosistema de Notificaciones:** Sistema de alertas push sincronizadas entre dispositivos.
+* **Geofencing de Seguridad:** Monitoreo de ubicación y zonas seguras integrado con Google Maps Platform.
 
 ---
 
@@ -60,13 +68,13 @@ En el contexto de la **Google Cloud Hackathon 2026**, **Buddy AI** redefine la g
     npm install
     ```
 
-3.  **Variables de Entorno:**
-    Crea un archivo `.env` en la raíz con tu API Key de Google:
+3.  **Configuración de API Keys:**
+    Crea un archivo `.env` en la raíz del proyecto:
     ```env
-    EXPO_PUBLIC_API_KEY=TU_API_KEY_AQUI
+    EXPO_PUBLIC_API_KEY=TU_API_KEY_DE_GOOGLE_CLOUD
     ```
 
-4.  **Ejecutar el proyecto:**
+4.  **Lanzamiento:**
     ```bash
     npx expo start
     ```
@@ -81,4 +89,4 @@ En el contexto de la **Google Cloud Hackathon 2026**, **Buddy AI** redefine la g
 * **Zhaira Paredes** - *Business Strategy & Pitch*
 
 ---
-**Desarrollado para la Google Cloud Hackathon 2026.**
+**Buddy AI: Innovación con propósito para la Google Cloud Hackathon 2026.**
