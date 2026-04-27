@@ -27,7 +27,7 @@ function CustomHeader() {
 export default function TabsLayout() {
   return (
     <Tabs screenOptions={{
-      tabBarActiveTintColor: '#98FFD8',
+      tabBarActiveTintColor: '#2D3436',
       tabBarInactiveTintColor: '#94A3B8',
       headerShown: true, // <-- Ahora lo activamos
       header: () => <CustomHeader />, // <-- Usamos nuestro componente
