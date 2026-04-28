@@ -1,4 +1,6 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
 import { Tabs } from 'expo-router';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -22,7 +24,7 @@ function CustomHeader() {
         <View style={styles.headerIcons}>
           <Ionicons name="notifications-outline" size={24} color="#334155" style={{ marginRight: 15 }} />
           <Image 
-            source={{ uri: 'https://i.pravatar.cc/100' }} // Avatar de María
+            source={{ uri: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop' }} // Avatar de María
             style={styles.avatar} 
           />
         </View>
@@ -57,14 +59,14 @@ export default function TabsLayout() {
         name="meds"
         options={{
           title: 'Medicamentos',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="pill" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="medicine-box" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
         name="chatbot"
         options={{
           title: 'Chatbot',
-          tabBarIcon: ({ color }) => <Ionicons name="chatbubble-ellipses" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <Entypo name="chat" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
